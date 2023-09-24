@@ -1,2 +1,1 @@
-# sgtask
-# sgtask
+# Interview taask for Snapp Grocery
