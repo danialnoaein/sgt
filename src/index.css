@@ -9,11 +9,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  direction: rtl;
   background-color: #090909;
 }
 body {
   margin: 0;
   padding: 0;
   color: #ffffff;
+}
+
+.page-container {
+  padding: 1rem;
 }

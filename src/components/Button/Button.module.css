@@ -1,0 +1,14 @@
+.button {
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.25rem;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  background-color: #76a9ff;
+}
+.fullWidth {
+  display: block;
+  width: 100%;
+}
