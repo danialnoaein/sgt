@@ -1,10 +1,15 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home";
+import NewEvent from "../pages/newEvent";
 const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/new",
+      element: <NewEvent />,
     },
   ]);
 

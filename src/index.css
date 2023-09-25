@@ -10,7 +10,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   background-color: #090909;
+  --primary-color: #76a9ff;
 }
+
 body {
   margin: 0;
   padding: 0;
