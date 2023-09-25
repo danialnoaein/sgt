@@ -1,5 +1,5 @@
 :root {
-  font-family: "Vazirmatn", Inter, system-ui, Avenir, Helvetica, Arial,
+  font-family: "Montserrat", Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -10,8 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   direction: rtl;
+  background-color: #090909;
 }
 body {
   margin: 0;
   padding: 0;
+  color: #ffffff;
 }
