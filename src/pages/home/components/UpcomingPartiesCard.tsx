@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
 
 const UpcomingPartiesCard = () => {
+  const navigate = useNavigate();
+  const onClickNewEvent = () => {
+    navigate("/new/1");
+  };
+
   return (
     <div
       style={{
@@ -17,7 +23,7 @@ const UpcomingPartiesCard = () => {
         Plan your house party
       </div>
 
-      <Button text='Create a new event' />
+      <Button onClick={onClickNewEvent}>Create a new event</Button>
     </div>
   );
 };

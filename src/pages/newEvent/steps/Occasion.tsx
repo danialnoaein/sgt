@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
+import ProgressBar from "../../../components/ProgressBar";
 
 const Occasion = () => {
   const [isSelected, setIsSelected] = useState(false);
@@ -11,6 +12,8 @@ const Occasion = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
+      <ProgressBar progress={20} />
+
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>
         What is the occasion?
       </div>
@@ -22,7 +25,7 @@ const Occasion = () => {
         <RadioButton name={"occasion"} onChoose={onRadioChoose} value={"5"} />
       </div>
 
-      <Button disabled={!isSelected} text="submit" />
+      <Button disabled={!isSelected}>ddd</Button>
     </div>
   );
 };
