@@ -1,23 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
-import styles from "./Button.module.css";
 import styled from "styled-components";
-
-// interface IButton extends ButtonHTMLAttributes{
-//   text: string;
-//   fullWidth?: boolean;
-//   disabled?: boolean;
-// }
-
-// const Button: React.FC<IButton> = ({ text, fullWidth, disabled }) => {
-//   return (
-//     <button
-//       disabled={disabled}
-//       className={`${styles.button} ${fullWidth && styles.fullWidth}`}
-//     >
-//       {text}
-//     </button>
-//   );
-// };
 
 const Button = styled.button`
   border-radius: 0.5rem;
