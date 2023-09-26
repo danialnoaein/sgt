@@ -1,6 +1,6 @@
+import { Outlet } from "react-router-dom";
 import PageContainer from "../../components/PageContainer";
 import ProgressBar from "../../components/ProgressBar";
-import Occasion from "./steps/Occasion";
 
 const NewEvent = () => {
   return (
@@ -12,7 +12,7 @@ const NewEvent = () => {
       <ProgressBar progress={20} />
 
       <div>
-        <Occasion />
+        <Outlet />
       </div>
     </PageContainer>
   );

@@ -2,16 +2,14 @@ import styles from "./RadioButton.module.css";
 
 interface IRadioButton {
   name: string;
+  value: string;
+  onChoose: (value: string) => void;
 }
-const RadioButton: React.FC<IRadioButton> = ({ name }) => {
+const RadioButton: React.FC<IRadioButton> = ({ name, value, onChoose }) => {
   return (
     <label className={`${styles.container}`}>
-      One
-      <input
-        type='radio'
-        name={name}
-      />
-      {/* <span className={`${styles.radiobtn}`}></span> */}
+      <input onChange={() => onChoose(value)} type="radio" name={name} />
+      <span className={`${styles.radiobtn}`}>{value}</span>
     </label>
   );
 };
