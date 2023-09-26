@@ -3,13 +3,17 @@ import styles from "./Button.module.css";
 interface IButton {
   text: string;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
-const Button: React.FC<IButton> = ({ text, fullWidth }) => {
+const Button: React.FC<IButton> = ({ text, fullWidth, disabled }) => {
   return (
-    <div className={`${styles.button} ${fullWidth && styles.fullWidth}`}>
+    <button
+      disabled={disabled}
+      className={`${styles.button} ${fullWidth && styles.fullWidth}`}
+    >
       {text}
-    </div>
+    </button>
   );
 };
 

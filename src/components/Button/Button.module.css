@@ -7,8 +7,16 @@
   text-align: center;
   display: inline-block;
   background-color: #76a9ff;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1rem;
 }
 .fullWidth {
   display: block;
   width: 100%;
+}
+.button[disabled] {
+  opacity: 0.5;
 }
