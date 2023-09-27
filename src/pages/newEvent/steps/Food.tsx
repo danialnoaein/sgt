@@ -18,7 +18,7 @@ const Food = () => {
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/6");
+    navigate("/new/5");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

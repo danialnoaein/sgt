@@ -18,7 +18,7 @@ const Alcohol = () => {
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/7");
+    navigate("/new/6");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

@@ -12,7 +12,7 @@ const EInvite = () => {
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/5");
+    navigate("/new/4");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

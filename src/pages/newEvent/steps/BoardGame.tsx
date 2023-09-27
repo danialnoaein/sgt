@@ -18,7 +18,7 @@ const BoardGame = () => {
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/3");
+    navigate("/");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

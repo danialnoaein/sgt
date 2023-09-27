@@ -17,7 +17,7 @@ const Decorator = () => {
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/8");
+    navigate("/new/7");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

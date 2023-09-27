@@ -7,7 +7,7 @@ const EventInfo = () => {
   const navigate = useNavigate();
 
   const onClickSubmit = () => {
-    navigate("/new/4");
+    navigate("/new/3");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
