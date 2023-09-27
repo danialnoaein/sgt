@@ -4,15 +4,22 @@ import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 
+enum OCCASION_TYPE {
+  Birthday,
+  Anniversary,
+  Dinner,
+  Meetup,
+  Other,
+}
 const Occasion = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: string) => {
+  const onRadioChoose = (value: number) => {
     setIsSelected(true);
     console.log(value);
   };
   const onClickSubmit = () => {
-    navigate("/new/2");
+    navigate("/new/1");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -22,11 +29,36 @@ const Occasion = () => {
         What is the occasion?
       </div>
       <div style={{ flex: 1 }}>
-        <RadioButton name={"occasion"} onChoose={onRadioChoose} value={"1"} />
-        <RadioButton name={"occasion"} onChoose={onRadioChoose} value={"2"} />
-        <RadioButton name={"occasion"} onChoose={onRadioChoose} value={"3"} />
-        <RadioButton name={"occasion"} onChoose={onRadioChoose} value={"4"} />
-        <RadioButton name={"occasion"} onChoose={onRadioChoose} value={"5"} />
+        <RadioButton
+          name={"OCCASION_TYPE"}
+          onChoose={onRadioChoose}
+          value={OCCASION_TYPE.Birthday}
+          label={"Birthday"}
+        />
+        <RadioButton
+          name={"OCCASION_TYPE"}
+          onChoose={onRadioChoose}
+          value={OCCASION_TYPE.Anniversary}
+          label={"Anniversary"}
+        />
+        <RadioButton
+          name={"OCCASION_TYPE"}
+          onChoose={onRadioChoose}
+          value={OCCASION_TYPE.Dinner}
+          label={"Dinner"}
+        />
+        <RadioButton
+          name={"OCCASION_TYPE"}
+          onChoose={onRadioChoose}
+          value={OCCASION_TYPE.Meetup}
+          label={"Meetup"}
+        />
+        <RadioButton
+          name={"OCCASION_TYPE"}
+          onChoose={onRadioChoose}
+          value={OCCASION_TYPE.Other}
+          label={"Other"}
+        />
       </div>
 
       <Button disabled={!isSelected} onClick={onClickSubmit}>

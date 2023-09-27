@@ -4,15 +4,21 @@ import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 
+enum ALCOHOL_TYPE {
+  YesINeed,
+  YesIHave,
+  BringYourOwnBottle,
+  No,
+}
 const Alcohol = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: string) => {
+  const onRadioChoose = (value: number) => {
     console.log(value);
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/3");
+    navigate("/new/7");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -22,11 +28,30 @@ const Alcohol = () => {
         Will there be alcohol?
       </div>
       <div style={{ flex: 1 }}>
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"1"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"2"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"3"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"4"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"5"} />
+        <RadioButton
+          name={"ALCOHOL_TYPE"}
+          onChoose={onRadioChoose}
+          value={ALCOHOL_TYPE.YesINeed}
+          label={"Yes, I need to order it"}
+        />
+        <RadioButton
+          name={"ALCOHOL_TYPE"}
+          onChoose={onRadioChoose}
+          value={ALCOHOL_TYPE.YesIHave}
+          label={"Yes, I have it"}
+        />
+        <RadioButton
+          name={"ALCOHOL_TYPE"}
+          onChoose={onRadioChoose}
+          value={ALCOHOL_TYPE.BringYourOwnBottle}
+          label={"Bring your own bottle"}
+        />
+        <RadioButton
+          name={"ALCOHOL_TYPE"}
+          onChoose={onRadioChoose}
+          value={ALCOHOL_TYPE.No}
+          label={"No"}
+        />
       </div>
 
       <Button disabled={!isSelected} onClick={onClickSubmit}>

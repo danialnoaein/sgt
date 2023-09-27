@@ -4,10 +4,16 @@ import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 
+enum BOARD_GAME_TYPE {
+  Yes,
+  No,
+  IHave,
+}
+
 const BoardGame = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: string) => {
+  const onRadioChoose = (value: number) => {
     console.log(value);
     setIsSelected(true);
   };
@@ -22,11 +28,24 @@ const BoardGame = () => {
         What is the size of the guest list?
       </div>
       <div style={{ flex: 1 }}>
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"1"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"2"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"3"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"4"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"5"} />
+        <RadioButton
+          name={"BOARD_GAME_TYPE"}
+          onChoose={onRadioChoose}
+          value={BOARD_GAME_TYPE.Yes}
+          label={"Yes"}
+        />
+        <RadioButton
+          name={"BOARD_GAME_TYPE"}
+          onChoose={onRadioChoose}
+          value={BOARD_GAME_TYPE.No}
+          label={"No"}
+        />
+        <RadioButton
+          name={"BOARD_GAME_TYPE"}
+          onChoose={onRadioChoose}
+          value={BOARD_GAME_TYPE.IHave}
+          label={"I have board games at home"}
+        />
       </div>
 
       <Button disabled={!isSelected} onClick={onClickSubmit}>

@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 const EInvite = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: string) => {
+  const onRadioChoose = (value: boolean) => {
     console.log(value);
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/3");
+    navigate("/new/5");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -22,8 +22,18 @@ const EInvite = () => {
         Do you want to send e-invite?
       </div>
       <div style={{ flex: 1 }}>
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"1"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"2"} />
+        <RadioButton
+          name={"SEND_E_INVITE"}
+          onChoose={onRadioChoose}
+          value={true}
+          label={"Yes"}
+        />
+        <RadioButton
+          name={"SEND_E_INVITE"}
+          onChoose={onRadioChoose}
+          value={false}
+          label={"No"}
+        />
       </div>
 
       <Button disabled={!isSelected} onClick={onClickSubmit}>

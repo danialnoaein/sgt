@@ -4,15 +4,20 @@ import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 
+enum GUESTS_SIZE_TYPE {
+  Small,
+  Medium,
+  Large,
+}
 const GuestsSize = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: string) => {
+  const onRadioChoose = (value: number) => {
     console.log(value);
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/3");
+    navigate("/new/2");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -22,11 +27,24 @@ const GuestsSize = () => {
         What is the size of the guest list?
       </div>
       <div style={{ flex: 1 }}>
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"1"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"2"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"3"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"4"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"5"} />
+        <RadioButton
+          name={"GUESTS_SIZE_TYPE"}
+          onChoose={onRadioChoose}
+          value={GUESTS_SIZE_TYPE.Small}
+          label={"Small"}
+        />
+        <RadioButton
+          name={"GUESTS_SIZE_TYPE"}
+          onChoose={onRadioChoose}
+          value={GUESTS_SIZE_TYPE.Medium}
+          label={"Medium"}
+        />
+        <RadioButton
+          name={"GUESTS_SIZE_TYPE"}
+          onChoose={onRadioChoose}
+          value={GUESTS_SIZE_TYPE.Large}
+          label={"Large"}
+        />
       </div>
 
       <Button disabled={!isSelected} onClick={onClickSubmit}>

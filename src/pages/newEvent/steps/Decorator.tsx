@@ -4,15 +4,20 @@ import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 
+enum DECORATION_TYPE {
+  Yes,
+  No,
+  IWill,
+}
 const Decorator = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: string) => {
+  const onRadioChoose = (value: number) => {
     console.log(value);
     setIsSelected(true);
   };
   const onClickSubmit = () => {
-    navigate("/new/3");
+    navigate("/new/8");
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -22,11 +27,24 @@ const Decorator = () => {
         Do you wish to hire a decorator?
       </div>
       <div style={{ flex: 1 }}>
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"1"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"2"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"3"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"4"} />
-        <RadioButton name={"GuestsSize"} onChoose={onRadioChoose} value={"5"} />
+        <RadioButton
+          name={"DECORATION_TYPE"}
+          onChoose={onRadioChoose}
+          value={DECORATION_TYPE.Yes}
+          label={"Yes"}
+        />
+        <RadioButton
+          name={"DECORATION_TYPE"}
+          onChoose={onRadioChoose}
+          value={DECORATION_TYPE.No}
+          label={"No"}
+        />
+        <RadioButton
+          name={"DECORATION_TYPE"}
+          onChoose={onRadioChoose}
+          value={DECORATION_TYPE.IWill}
+          label={"I will decorate myself"}
+        />
       </div>
 
       <Button disabled={!isSelected} onClick={onClickSubmit}>

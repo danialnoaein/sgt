@@ -1,4 +1,4 @@
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PageContainer from "../../components/PageContainer";
 import LeftArrowIcon from "../../assets/left-arrow.svg";
 import Occasion from "./steps/Occasion";
@@ -61,7 +61,7 @@ const NewEvent = () => {
           <img
             style={{ width: "24px", marginRight: "1rem" }}
             src={LeftArrowIcon}
-            alt=""
+            alt="Back Icon"
           />
         </div>
         <div style={{ flex: "1", fontWeight: "bold" }}>Create a New Event</div>
