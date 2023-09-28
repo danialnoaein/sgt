@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import glassesImage from "../../../../public/glasses.svg";
 
 enum ALCOHOL_TYPE {
   YesINeed,
@@ -23,6 +24,13 @@ const Alcohol = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ProgressBar progress={75} />
+
+      <div style={{ margin: "1rem auto" }}>
+        <img
+          src={glassesImage}
+          alt='glasses'
+        />
+      </div>
 
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>
         Will there be alcohol?
@@ -54,7 +62,11 @@ const Alcohol = () => {
         />
       </div>
 
-      <Button disabled={!isSelected} onClick={onClickSubmit}>
+      <Button
+        disabled={!isSelected}
+        onClick={onClickSubmit}
+        className='pageSubmit'
+      >
         Next
       </Button>
     </div>

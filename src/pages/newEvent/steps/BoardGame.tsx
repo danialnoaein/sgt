@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import gamesImage from "../../../../public/games.svg";
 
 enum BOARD_GAME_TYPE {
   Yes,
@@ -23,6 +24,13 @@ const BoardGame = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ProgressBar progress={100} />
+
+      <div style={{ margin: "1rem auto" }}>
+        <img
+          src={gamesImage}
+          alt='games'
+        />
+      </div>
 
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>
         What is the size of the guest list?
@@ -48,7 +56,11 @@ const BoardGame = () => {
         />
       </div>
 
-      <Button disabled={!isSelected} onClick={onClickSubmit}>
+      <Button
+        disabled={!isSelected}
+        onClick={onClickSubmit}
+        className='pageSubmit'
+      >
         Next
       </Button>
     </div>

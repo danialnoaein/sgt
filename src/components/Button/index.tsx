@@ -18,6 +18,12 @@ const Button = styled.button`
     display: block;
     width: 100%;
   }
+  &.pageSubmit {
+    position: fixed;
+    bottom: 1rem;
+    width: calc(100vw - 2rem);
+    left: 1rem;
+  }
   &[disabled] {
     opacity: 0.5;
   }

@@ -15,15 +15,20 @@ const EventInfo = () => {
 
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>Event Name</div>
       <div>
-        <input type="text" />
+        <input type='text' />
       </div>
 
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>Event Name</div>
       <div>
-        <input type="text" />
+        <input type='text' />
       </div>
 
-      <Button onClick={onClickSubmit}>Next</Button>
+      <Button
+        onClick={onClickSubmit}
+        className='pageSubmit'
+      >
+        Next
+      </Button>
     </div>
   );
 };

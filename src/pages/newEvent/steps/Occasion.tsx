@@ -61,7 +61,11 @@ const Occasion = () => {
         />
       </div>
 
-      <Button disabled={!isSelected} onClick={onClickSubmit}>
+      <Button
+        disabled={!isSelected}
+        className='pageSubmit'
+        onClick={onClickSubmit}
+      >
         Next
       </Button>
     </div>

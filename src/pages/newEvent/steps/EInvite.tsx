@@ -46,6 +46,7 @@ const EInvite = () => {
       <Button
         disabled={!isSelected}
         onClick={onClickSubmit}
+        className='pageSubmit'
       >
         Next
       </Button>

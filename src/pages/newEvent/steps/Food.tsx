@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import cakeImage from "../../../../public/cake.svg";
 
 enum FOOD_ARRANGEMENTS {
   OrderIn,
@@ -23,6 +24,13 @@ const Food = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ProgressBar progress={50} />
+
+      <div style={{ margin: "1rem auto" }}>
+        <img
+          src={cakeImage}
+          alt='cake'
+        />
+      </div>
 
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>
         What will be the food arrangements?
@@ -54,7 +62,11 @@ const Food = () => {
         />
       </div>
 
-      <Button disabled={!isSelected} onClick={onClickSubmit}>
+      <Button
+        disabled={!isSelected}
+        onClick={onClickSubmit}
+        className='pageSubmit'
+      >
         Next
       </Button>
     </div>
