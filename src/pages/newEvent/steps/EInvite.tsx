@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import letterImage from "../../../../public/letter.svg";
 
 const EInvite = () => {
   const [isSelected, setIsSelected] = useState(false);
@@ -18,6 +19,12 @@ const EInvite = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ProgressBar progress={25} />
 
+      <div style={{ margin: "1rem auto" }}>
+        <img
+          src={letterImage}
+          alt='Letter'
+        />
+      </div>
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>
         Do you want to send e-invite?
       </div>
@@ -36,7 +43,10 @@ const EInvite = () => {
         />
       </div>
 
-      <Button disabled={!isSelected} onClick={onClickSubmit}>
+      <Button
+        disabled={!isSelected}
+        onClick={onClickSubmit}
+      >
         Next
       </Button>
     </div>
