@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const Button = styled.button`
+const Button = styled.button<{ variant?: string }>`
   border-radius: 0.5rem;
   text-transform: uppercase;
   padding: 0.75rem 1rem;
@@ -8,7 +8,12 @@ const Button = styled.button`
   font-weight: bold;
   text-align: center;
   display: inline-block;
-  background-color: #76a9ff;
+  background-color: #1c1c1c;
+  ${(props) =>
+    props.variant === "cta" &&
+    css`
+      background: #76a9ff;
+    `};
   outline: 0;
   border: 0;
   text-align: center;

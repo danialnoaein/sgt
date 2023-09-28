@@ -27,3 +27,7 @@ body {
 .page-container {
   padding: 1rem;
 }
+
+.lightText {
+  font-size: 0.8rem;
+}

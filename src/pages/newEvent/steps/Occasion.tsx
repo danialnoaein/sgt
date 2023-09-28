@@ -3,14 +3,8 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import { OCCASION_TYPE } from "../../../constants/occasionTypeEnum";
 
-enum OCCASION_TYPE {
-  Birthday,
-  Anniversary,
-  Dinner,
-  Meetup,
-  Other,
-}
 const Occasion = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
