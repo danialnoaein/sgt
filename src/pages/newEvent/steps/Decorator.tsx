@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import bubblesImage from "../../../../public/bubbles.svg";
 
 enum DECORATION_TYPE {
   Yes,
@@ -22,6 +23,13 @@ const Decorator = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ProgressBar progress={87.5} />
+
+      <div style={{ margin: "1rem auto" }}>
+        <img
+          src={bubblesImage}
+          alt='bubbles'
+        />
+      </div>
 
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>
         Do you wish to hire a decorator?
@@ -47,7 +55,10 @@ const Decorator = () => {
         />
       </div>
 
-      <Button disabled={!isSelected} onClick={onClickSubmit}>
+      <Button
+        disabled={!isSelected}
+        onClick={onClickSubmit}
+      >
         Next
       </Button>
     </div>
