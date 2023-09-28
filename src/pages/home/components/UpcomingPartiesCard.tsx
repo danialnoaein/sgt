@@ -67,7 +67,7 @@ const UpcomingPartiesCard = () => {
         <div>
           <img
             src={hasUpcomingEvent ? calendarImage : checkListImage}
-            style={{ width: "76px" }}
+            style={{ width: "68px" }}
           />
         </div>
       </div>
