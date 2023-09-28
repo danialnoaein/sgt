@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Button = styled.button`
   border-radius: 0.5rem;
   text-transform: uppercase;
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
   margin-top: 0.25rem;
   font-weight: bold;
   text-align: center;
@@ -13,7 +13,7 @@ const Button = styled.button`
   border: 0;
   text-align: center;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   &.fullWidth {
     display: block;
     width: 100%;

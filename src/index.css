@@ -3,6 +3,7 @@
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 14px;
   background: #f9f9f9;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,6 +14,8 @@
   --primary-color: #76a9ff;
   --grey-800-color: #424242;
   --grey-900-color: #212121;
+  --radio-button-grey-bg-color: #1c1c1c;
+  --radio-button-active-bg-color: #292e36;
 }
 
 body {
