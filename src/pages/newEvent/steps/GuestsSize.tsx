@@ -51,6 +51,7 @@ const GuestsSize = () => {
         disabled={!isSelected}
         className='pageSubmit'
         onClick={onClickSubmit}
+        variant='newEventSubmit'
       >
         Next
       </Button>

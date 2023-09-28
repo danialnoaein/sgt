@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const Button = styled.button<{ variant?: string }>`
+const Button = styled.button<{ variant?: "cta" | "newEventSubmit" }>`
   border-radius: 0.5rem;
   text-transform: uppercase;
   padding: 0.75rem 1rem;
@@ -13,7 +13,17 @@ const Button = styled.button<{ variant?: string }>`
     props.variant === "cta" &&
     css`
       background: #76a9ff;
-    `};
+    `}
+  ${(props) =>
+    props.variant === "newEventSubmit" &&
+    css`
+      background: #76a9ff;
+      position: fixed;
+      bottom: 1rem;
+      width: calc(100vw - 2rem);
+      left: 1rem;
+    `}
+
   outline: 0;
   border: 0;
   text-align: center;
@@ -22,12 +32,6 @@ const Button = styled.button<{ variant?: string }>`
   &.fullWidth {
     display: block;
     width: 100%;
-  }
-  &.pageSubmit {
-    position: fixed;
-    bottom: 1rem;
-    width: calc(100vw - 2rem);
-    left: 1rem;
   }
   &[disabled] {
     opacity: 0.5;

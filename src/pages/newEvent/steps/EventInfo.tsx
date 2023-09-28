@@ -26,6 +26,7 @@ const EventInfo = () => {
       <Button
         onClick={onClickSubmit}
         className='pageSubmit'
+        variant='newEventSubmit'
       >
         Next
       </Button>

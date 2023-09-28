@@ -66,6 +66,7 @@ const Food = () => {
         disabled={!isSelected}
         onClick={onClickSubmit}
         className='pageSubmit'
+        variant='newEventSubmit'
       >
         Next
       </Button>

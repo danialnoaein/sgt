@@ -59,6 +59,7 @@ const Occasion = () => {
         disabled={!isSelected}
         className='pageSubmit'
         onClick={onClickSubmit}
+        variant='newEventSubmit'
       >
         Next
       </Button>
