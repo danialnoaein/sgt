@@ -9,6 +9,7 @@ export interface IParty {
   date: string;
   time: string;
   fullDate: string;
+  budget: number;
   type: OCCASION_TYPE;
   guestSize: GUESTS_SIZE_TYPE;
   checkList: [];

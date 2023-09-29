@@ -5,7 +5,7 @@ import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import { OCCASION_TYPE } from "../../../constants/occasionTypeEnum";
 import { useDispatch } from "react-redux";
-import { addParty } from "../../../store/slices/partySlice";
+import { updateDraftParty } from "../../../store/slices/partySlice";
 
 const Occasion = () => {
   const [isSelected, setIsSelected] = useState(false);
@@ -16,17 +16,8 @@ const Occasion = () => {
     console.log(value);
   };
   const onClickSubmit = () => {
+    dispatch(dispatch(updateDraftParty({ type: OCCASION_TYPE.Anniversary })));
     navigate("/new/1");
-    dispatch(
-      addParty({
-        id: Math.floor(Math.random() * 1000),
-        title: "SARA " + Math.floor(Math.random() * 1000),
-        date: "2024-07-04",
-        time: "13:30",
-        fullDate: "2024-07-04 13:30",
-        checkList: [],
-      })
-    );
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
