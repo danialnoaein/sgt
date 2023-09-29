@@ -2,20 +2,38 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
 import calendarImage from "../../../../public/calendar.png";
 import checkListImage from "../../../../public/checkList.png";
+import { RootState } from "../../../store/store";
+import { useSelector, useDispatch } from "react-redux";
+import { addParty } from "../../../store/slices/partySlice";
+
 const UpcomingPartiesCard = () => {
-  const hasUpcomingEvent = true;
+  const parties = useSelector((state: RootState) => state.party.parties);
+  const dispatch = useDispatch();
+
+  console.log(parties);
+
+  const hasUpcomingEvent = false;
+  const nextEventTitle = "Sara’s Birthday Bash";
+  const daysToNextEvent = 10;
 
   const navigate = useNavigate();
   const onClickNewEvent = () => {
     navigate("/new");
+    dispatch(
+      addParty({
+        id: Math.random() * 1000,
+        title: "SARA",
+        date: "none",
+        time: "none",
+        checkList: [],
+      })
+    );
   };
 
   const onCardClick = () => {
     if (hasUpcomingEvent) navigate("/party");
   };
 
-  const daysToNextEvent = 10;
-  const nextEventTitle = "Sara’s Birthday Bash";
   return (
     <>
       {hasUpcomingEvent && (
