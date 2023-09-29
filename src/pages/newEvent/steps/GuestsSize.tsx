@@ -3,17 +3,16 @@ import Button from "../../../components/Button";
 import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateDraftParty } from "../../../store/slices/partySlice";
+import { GUESTS_SIZE_TYPE } from "../../../constants/guestSizeEnum";
 
-enum GUESTS_SIZE_TYPE {
-  Small,
-  Medium,
-  Large,
-}
 const GuestsSize = () => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-  const onRadioChoose = (value: number) => {
-    console.log(value);
+  const dispatch = useDispatch();
+  const onRadioChoose = (value: GUESTS_SIZE_TYPE) => {
+    dispatch(dispatch(updateDraftParty({ guestSize: value })));
     setIsSelected(true);
   };
   const onClickSubmit = () => {

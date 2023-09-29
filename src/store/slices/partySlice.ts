@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { OCCASION_TYPE } from "../../constants/occasionTypeEnum";
+import { GUESTS_SIZE_TYPE } from "../../constants/guestSizeEnum";
 
 export interface IParty {
   id: number;
@@ -7,14 +9,14 @@ export interface IParty {
   date: string;
   time: string;
   fullDate: string;
+  type: OCCASION_TYPE;
+  guestSize: GUESTS_SIZE_TYPE;
   checkList: [];
 }
 
-export interface IDraftParty extends Partial<IParty> {}
-
 export interface IPartySlice {
   parties: IParty[];
-  draftParty: IDraftParty;
+  draftParty: Partial<IParty>;
 }
 
 const initialState: IPartySlice = { parties: [], draftParty: {} };
@@ -26,11 +28,11 @@ export const partySlice = createSlice({
     addParty: (state, action: PayloadAction<IParty>) => {
       state.parties.push(action.payload);
     },
-    updateDraftParty: (state, action: PayloadAction<IParty>) => {
-      state.draftParty = action.payload;
+    updateDraftParty: (state, action: PayloadAction<Partial<IParty>>) => {
+      state.draftParty = { ...state.draftParty, ...action.payload };
     },
   },
 });
 
-export const { addParty } = partySlice.actions;
+export const { addParty, updateDraftParty } = partySlice.actions;
 export default partySlice.reducer;
