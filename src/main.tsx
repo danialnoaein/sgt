@@ -3,12 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Router from "./routes/router.tsx";
 import { Provider } from "react-redux";
-import { store } from "./store/store.ts";
+import { persistor, store } from "./store/store.ts";
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router />
+      <PersistGate
+        loading={null}
+        persistor={persistor}
+      >
+        <Router />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
