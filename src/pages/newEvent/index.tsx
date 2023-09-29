@@ -52,8 +52,6 @@ const NewEvent = () => {
     }
   }, [params]);
 
-  console.log(params);
-
   return (
     <PageContainer>
       <div style={{ display: "flex" }}>

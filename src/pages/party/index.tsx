@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PageContainer from "../../components/PageContainer";
 import LeftArrowIcon from "../../assets/left-arrow.svg";

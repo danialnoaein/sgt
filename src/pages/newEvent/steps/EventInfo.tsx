@@ -11,8 +11,6 @@ const EventInfo = () => {
   const dispatch = useDispatch();
   const draftParty = useSelector((state: RootState) => state.party.draftParty);
 
-  console.log(draftParty);
-
   const [isFormCompleted, setIsFormCompleted] = useState(false);
 
   const [title, setTitle] = useState(draftParty.title);

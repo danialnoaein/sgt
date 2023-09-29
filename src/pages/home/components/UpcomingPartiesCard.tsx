@@ -14,6 +14,8 @@ const UpcomingPartiesCard = () => {
   const [upcomingEvent, setUpcomingEvent] = useState<IParty | null>(null);
   const [daysToNextEvent, setDaysToNextEvent] = useState(0);
 
+  console.log(parties);
+
   useEffect(() => {
     if (parties.length > 0) {
       const nearestParty = getNearestParty(parties);

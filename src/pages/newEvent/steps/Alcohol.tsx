@@ -4,23 +4,31 @@ import RadioButton from "../../../components/RadioButton";
 import ProgressBar from "../../../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import glassesImage from "../../../../public/glasses.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { updateDraftPartyCheckList } from "../../../store/slices/partySlice";
+import { ALCOHOL_TYPE } from "../../../constants/enums";
 
-enum ALCOHOL_TYPE {
-  YesINeed,
-  YesIHave,
-  BringYourOwnBottle,
-  No,
-}
 const Alcohol = () => {
-  const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const draftParty = useSelector((state: RootState) => state.party.draftParty);
+  const [isSelected, setIsSelected] = useState(
+    draftParty.checkList?.hasOwnProperty("alcohol")
+  );
+  const [selected, setSelected] = useState<any>(
+    draftParty.checkList && draftParty.checkList.alcohol
+  );
+
   const onRadioChoose = (value: number) => {
-    console.log(value);
     setIsSelected(true);
+    setSelected(value);
   };
   const onClickSubmit = () => {
+    dispatch(updateDraftPartyCheckList({ key: "alcohol", value: selected }));
     navigate("/new/6");
   };
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ProgressBar progress={75} />
@@ -41,24 +49,28 @@ const Alcohol = () => {
           onChoose={onRadioChoose}
           value={ALCOHOL_TYPE.YesINeed}
           label={"Yes, I need to order it"}
+          defaultValue={selected}
         />
         <RadioButton
           name={"ALCOHOL_TYPE"}
           onChoose={onRadioChoose}
           value={ALCOHOL_TYPE.YesIHave}
           label={"Yes, I have it"}
+          defaultValue={selected}
         />
         <RadioButton
           name={"ALCOHOL_TYPE"}
           onChoose={onRadioChoose}
           value={ALCOHOL_TYPE.BringYourOwnBottle}
           label={"Bring your own bottle"}
+          defaultValue={selected}
         />
         <RadioButton
           name={"ALCOHOL_TYPE"}
           onChoose={onRadioChoose}
           value={ALCOHOL_TYPE.No}
           label={"No"}
+          defaultValue={selected}
         />
       </div>
 
