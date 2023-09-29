@@ -46,7 +46,7 @@ const NewEvent = () => {
   const onBackButtonClick = () => navigate(-1);
 
   useEffect(() => {
-    if (params.id) {
+    if (params && params.id) {
       const stepFromIdParam = parseInt(params.id!);
       setStep(stepFromIdParam);
     }
@@ -61,7 +61,7 @@ const NewEvent = () => {
           <img
             style={{ width: "24px", marginRight: "1rem" }}
             src={LeftArrowIcon}
-            alt="Back Icon"
+            alt='Back Icon'
           />
         </div>
         <div style={{ flex: "1", fontWeight: "bold" }}>Create a New Event</div>

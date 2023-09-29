@@ -1,13 +1,22 @@
+import { useEffect, useState } from "react";
 import PreviousPartyCard from "./PreviousPartyCard";
+import { useSelector } from "react-redux";
+import { IParty } from "../../../store/slices/partySlice";
+import { RootState } from "../../../store/store";
+import { getPreviousParties } from "../../../utlis/partyArray";
 
 const PreviousParties = () => {
-  const hasPreviousEvent = false;
+  const parties = useSelector((state: RootState) => state.party.parties);
+  const [previousParties, setPreviousParties] = useState<IParty[]>([]);
 
+  useEffect(() => {
+    const preParties = getPreviousParties(parties);
+    setPreviousParties(preParties);
+  }, [parties]);
   return (
     <div>
       <div style={{ fontWeight: "bold" }}>Previous House Parties</div>
-      {hasPreviousEvent && <div>There is no previous event!</div>}
-
+      {previousParties.length === 0 && <div>There is no previous event!</div>}
       <div
         style={{
           display: "grid",
@@ -16,8 +25,12 @@ const PreviousParties = () => {
           marginTop: "1rem",
         }}
       >
-        <PreviousPartyCard />
-        <PreviousPartyCard />
+        {previousParties.map((party: IParty) => (
+          <PreviousPartyCard
+            party={party}
+            key={party.id}
+          />
+        ))}
       </div>
     </div>
   );

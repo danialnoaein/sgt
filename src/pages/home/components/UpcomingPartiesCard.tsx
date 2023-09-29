@@ -3,40 +3,38 @@ import Button from "../../../components/Button";
 import calendarImage from "../../../../public/calendar.png";
 import checkListImage from "../../../../public/checkList.png";
 import { RootState } from "../../../store/store";
-import { useSelector, useDispatch } from "react-redux";
-import { addParty } from "../../../store/slices/partySlice";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getDaysToEvent, getNearestParty } from "../../../utlis/partyArray";
+import { IParty } from "../../../store/slices/partySlice";
 
 const UpcomingPartiesCard = () => {
   const parties = useSelector((state: RootState) => state.party.parties);
-  const dispatch = useDispatch();
 
-  console.log(parties);
+  const [upcomingEvent, setUpcomingEvent] = useState<IParty | null>(null);
+  const [daysToNextEvent, setDaysToNextEvent] = useState(0);
 
-  const hasUpcomingEvent = false;
-  const nextEventTitle = "Sara’s Birthday Bash";
-  const daysToNextEvent = 10;
+  useEffect(() => {
+    if (parties.length > 0) {
+      const nearestParty = getNearestParty(parties);
+      console.log("nearestParty", nearestParty);
+      setDaysToNextEvent(getDaysToEvent(nearestParty));
+      setUpcomingEvent(nearestParty);
+    }
+  }, [parties]);
 
   const navigate = useNavigate();
   const onClickNewEvent = () => {
     navigate("/new");
-    dispatch(
-      addParty({
-        id: Math.random() * 1000,
-        title: "SARA",
-        date: "none",
-        time: "none",
-        checkList: [],
-      })
-    );
   };
 
   const onCardClick = () => {
-    if (hasUpcomingEvent) navigate("/party");
+    if (upcomingEvent) navigate(`/party/${upcomingEvent.id}`);
   };
 
   return (
     <>
-      {hasUpcomingEvent && (
+      {upcomingEvent && (
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ flex: "1", fontWeight: "bold" }}>Upcoming</div>
           <Button onClick={onClickNewEvent}>Create new</Button>
@@ -55,17 +53,17 @@ const UpcomingPartiesCard = () => {
       >
         <div style={{ flex: "1" }}>
           <div style={{ fontWeight: "bold" }}>
-            {hasUpcomingEvent ? nextEventTitle : "No Upcoming House Party"}
+            {upcomingEvent ? upcomingEvent.title : "No Upcoming House Party"}
           </div>
           <div
             className='lightText'
             style={{ margin: "0.5rem 0" }}
           >
-            {!hasUpcomingEvent && "Plan your house party"}
-            {hasUpcomingEvent && `${daysToNextEvent} Days to go`}
+            {!upcomingEvent && "Plan your house party"}
+            {upcomingEvent && `${daysToNextEvent} Days to go`}
           </div>
 
-          {!hasUpcomingEvent && (
+          {!upcomingEvent && (
             <Button
               onClick={onClickNewEvent}
               variant='cta'
@@ -74,7 +72,7 @@ const UpcomingPartiesCard = () => {
             </Button>
           )}
 
-          {hasUpcomingEvent && (
+          {upcomingEvent && (
             <div style={{ display: "flex", gap: "2rem" }}>
               <div>
                 <div style={{ fontWeight: "bold" }}>0</div>
@@ -90,7 +88,7 @@ const UpcomingPartiesCard = () => {
         </div>
         <div>
           <img
-            src={hasUpcomingEvent ? calendarImage : checkListImage}
+            src={upcomingEvent ? calendarImage : checkListImage}
             style={{ width: "68px" }}
           />
         </div>

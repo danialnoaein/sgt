@@ -3,8 +3,12 @@ import dishIcon from "../../../../public/dishIcon.svg";
 import glassesIcon from "../../../../public/glassesIcon.svg";
 import heartsIcon from "../../../../public/heartsIcon.svg";
 import starsIcon from "../../../../public/starsIcon.svg";
+import { IParty } from "../../../store/slices/partySlice";
 
-const PreviousPartyCard = () => {
+interface IPreviousPartyCardProps {
+  party: IParty;
+}
+const PreviousPartyCard: React.FC<IPreviousPartyCardProps> = ({ party }) => {
   return (
     <div
       style={{
@@ -32,9 +36,9 @@ const PreviousPartyCard = () => {
           style={{ width: "20px", margin: "0 auto" }}
         />
       </div>
-      <div style={{ fontWeight: "bold" }}>Shravya’s Birthday</div>
-      <div style={{ color: "#ADADAD" }}>14-07-2021</div>
-      <div style={{ color: "#ADADAD" }}>8:00 PM</div>
+      <div style={{ fontWeight: "bold" }}>{party.title}</div>
+      <div style={{ color: "#ADADAD" }}>{party.date}</div>
+      <div style={{ color: "#ADADAD" }}>{party.time}</div>
     </div>
   );
 };

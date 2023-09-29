@@ -6,6 +6,7 @@ export interface IParty {
   title: string;
   date: string;
   time: string;
+  fullDate: string;
   checkList: [];
 }
 

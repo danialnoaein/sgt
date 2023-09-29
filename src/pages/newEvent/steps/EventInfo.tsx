@@ -21,6 +21,15 @@ const EventInfo = () => {
       <div style={{ fontWeight: "bold", margin: "0.75rem 0" }}>Event Name</div>
       <div>
         <input type='text' />
+        <input
+          type='date'
+          value='2017-06-01'
+        />
+        <input
+          type='time'
+          name='appt-time'
+          value='13:30'
+        />
       </div>
 
       <Button
