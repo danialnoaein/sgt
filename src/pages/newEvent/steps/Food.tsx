@@ -23,7 +23,7 @@ const Food = () => {
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <ProgressBar progress={50} />
+      <ProgressBar progress={62.5} />
 
       <div style={{ margin: "1rem auto" }}>
         <img

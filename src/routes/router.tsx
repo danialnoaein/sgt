@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home";
 import NewEvent from "../pages/newEvent";
+import Party from "../pages/party";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -15,6 +16,15 @@ const Router = () => {
     {
       path: "/new/:id",
       element: <NewEvent />,
+    },
+
+    {
+      path: "/party",
+      element: <Party />,
+    },
+    {
+      path: "/party/:id",
+      element: <Party />,
     },
   ]);
 

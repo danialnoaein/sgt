@@ -17,7 +17,7 @@ const EInvite = () => {
   };
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <ProgressBar progress={25} />
+      <ProgressBar progress={50} />
 
       <div style={{ margin: "1rem auto" }}>
         <img

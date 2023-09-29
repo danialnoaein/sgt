@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: var(--radio-button-grey-bg-color);
+  border-radius: 0.5rem;
+}
+.container div {
+  display: flex;
+  flex-direction: column;
+}
+.container input {
+  margin-right: 0.75rem;
+  appearance: none;
+  background-color: transparent;
+  color: currentColor;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  display: grid;
+  place-content: center;
+}
+.container input::before {
+  content: " ";
+  display: block;
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  box-shadow: inset 1em 1em #1c1c1c;
+  transform-origin: bottom left;
+  transform: translateY(-0.075rem);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.container input:checked::before {
+  transform: scale(1);
+}
+
+.container input:checked {
+  /* opacity: 0; */
+  background-color: white;
+  /* transform: translateY(-0.075em); */
+}
+
+.container span {
+  font-weight: bold;
+}
+.container input:checked ~ span {
+  border-color: var(--primary-color);
+  background-color: var(--radio-button-active-bg-color);
+}
+.container span.subLabel {
+  font-weight: normal;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}

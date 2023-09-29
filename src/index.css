@@ -28,6 +28,9 @@ body {
   padding: 1rem;
 }
 
+.boldText {
+  font-weight: bold;
+}
 .lightText {
   font-size: 0.8rem;
 }

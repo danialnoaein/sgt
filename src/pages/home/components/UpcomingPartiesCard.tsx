@@ -3,12 +3,17 @@ import Button from "../../../components/Button";
 import calendarImage from "../../../../public/calendar.png";
 import checkListImage from "../../../../public/checkList.png";
 const UpcomingPartiesCard = () => {
+  const hasUpcomingEvent = true;
+
   const navigate = useNavigate();
   const onClickNewEvent = () => {
-    navigate("/new/1");
+    navigate("/new");
   };
 
-  const hasUpcomingEvent = false;
+  const onCardClick = () => {
+    if (hasUpcomingEvent) navigate("/party");
+  };
+
   const daysToNextEvent = 10;
   const nextEventTitle = "Sara’s Birthday Bash";
   return (
@@ -28,6 +33,7 @@ const UpcomingPartiesCard = () => {
           margin: "0.75rem 0",
           display: "flex",
         }}
+        onClick={onCardClick}
       >
         <div style={{ flex: "1" }}>
           <div style={{ fontWeight: "bold" }}>
