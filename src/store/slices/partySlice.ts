@@ -8,6 +8,7 @@ import {
   GUESTS_SIZE_TYPE,
   OCCASION_TYPE,
 } from "../../constants/enums";
+import { getRandomId } from "../../utlis/randomId";
 
 export interface IParty {
   id: number;
@@ -43,7 +44,11 @@ export const partySlice = createSlice({
   reducers: {
     addParty: (state) => {
       let newParty = state.draftParty;
-      newParty = { ...newParty, fullDate: `${newParty.date} ${newParty.time}` };
+      newParty = {
+        ...newParty,
+        fullDate: `${newParty.date} ${newParty.time}`,
+        id: getRandomId(),
+      };
       state.parties.push(newParty);
       state.draftParty = {};
     },

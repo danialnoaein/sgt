@@ -20,6 +20,7 @@ const UpcomingPartiesCard = () => {
     if (parties.length > 0) {
       const nearestParty = getNearestParty(parties);
       console.log("nearestParty", nearestParty);
+
       setDaysToNextEvent(getDaysToEvent(nearestParty));
       setUpcomingEvent(nearestParty);
     }
